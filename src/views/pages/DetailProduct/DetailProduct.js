@@ -14,6 +14,10 @@ class DetailProduct extends Component {
 	      prdfrom: "Jakarta, Indonesia",
 	      store: "Ebay",
 	      image: "https://images-na.ssl-images-amazon.com/images/I/51nk%2BaSvOFL.jpg",
+	      //desc: "<p><strong>Product Featured &amp; Technical Details</strong><br />Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p><p><strong>Description</strong><br />Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>",
+	      //desc: "<h3><strong>Product Featured &amp; Technical Details</strong></h3><p><br />Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p><h3><strong>Description</strong></h3><p><br />Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>",
+	      //desc: "<h1>Heading 1</h1><h2>Heading 2</h2><h3>Heading 3</h3><pre>Heading Formated</pre><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&nbsp;</p><ul><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&nbsp;</li></ul><ol><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&nbsp;</li></ol><p><s>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&nbsp;</s></p><p><em>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&nbsp;</em></p><p><strong>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&nbsp;</strong></p><p>&nbsp;</p>",
+	      desc: "<h2>Lorem Ipsum Title Test Sit Amet</h2><p>Consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>",
 	      id: 1
 	    };
 
@@ -32,6 +36,9 @@ class DetailProduct extends Component {
 	      disc_price = <div>{product_Detail.price}</div>
 	    }
 
+	    function parserDesc() {
+		  return {__html: product_Detail.desc};
+		}
 	  	return (
 	  		<div className="pd-area" react-section="product-detail">
 	  			<div className="container">
@@ -58,13 +65,13 @@ class DetailProduct extends Component {
 	  									<table className="table-pdetail" cellPadding = "5">
 	  										<tbody>
 		  										<tr>
-		  											<td width="100px" style={{'verticalAlign':'top'}} >Harga</td>
+		  											<td className="label-detail-pd" width="100px">Harga</td>
 		  											<td>
 		  												{disc_price}
 		  											</td>
 		  										</tr>
 		  										<tr>
-		  											<td width="100px">Kondisi</td>
+		  											<td className="label-detail-pd" width="100px">Kondisi</td>
 		  											<td>Baru</td>
 		  										</tr>
 	  										</tbody>
@@ -74,15 +81,15 @@ class DetailProduct extends Component {
 	  									<table className="table-pdetail" cellPadding = "5">
 	  										<tbody>
 	  											<tr>
-	  												<td width="100px">Penjual</td>
+	  												<td width="100px" className="label-detail-pd">Penjual</td>
 	  												<td>{product_Detail.store}</td>
 	  											</tr>
 	  											<tr>
-	  												<td width="100px">Alamat</td>
+	  												<td width="100px" className="label-detail-pd">Alamat</td>
 	  												<td>{product_Detail.country}</td>
 	  											</tr>
 	  											<tr>
-	  												<td width="100px">Link Detail</td>
+	  												<td width="100px" className="label-detail-pd">Link Detail</td>
 	  												<td>
 	  													<a href="#" className="btn btn-gray btn-sm">Detail Product</a>
 	  												</td>
@@ -94,7 +101,7 @@ class DetailProduct extends Component {
 	  									<table className="table-pdetail" cellPadding = "5">
 	  										<tbody>
 	  											<tr>
-	  												<td style={{'verticalAlign':'top'}} width="100px">Keterangan</td>
+	  												<td className="label-detail-pd" width="100px">Keterangan</td>
 	  												<td>
 	  													<textarea className="form-control mb-2" rows="3" placeholder="Masukan warna ukuran atau ketentuan lain yang Anda inginkan berdasarkan ketersediaan di link Detail product ...">
 	  														
@@ -102,7 +109,7 @@ class DetailProduct extends Component {
 	  												</td>
 	  											</tr>
 	  											<tr>
-	  												<td style={{'verticalAlign':'top'}} width="100px">Jumlah</td>
+	  												<td className="label-detail-pd" width="100px">Jumlah</td>
 	  												<td>
 	  													<select className="form-control mb-2" style={{'width':'60px'}}>
 	  														<option>1</option>
@@ -182,7 +189,9 @@ class DetailProduct extends Component {
 							</ul>
 
 							<div className="tab-content prd-summary-content">
-							  <div role="tabpanel" className="tab-pane fade show active" id="profile">...</div>
+							  <div role="tabpanel" className="tab-pane fade show active" id="profile">
+							  <div dangerouslySetInnerHTML={parserDesc()} />
+							  </div>
 							  <div role="tabpanel" className="tab-pane fade" id="buzz">bbb</div>
 							</div>
 
